@@ -8,8 +8,7 @@ load("data/pm10.RData")
 
 weather <- mutate(weather, dust_weather_code = (grepl("DU", presentwx)|
                                          grepl("DS",presentwx))) %>%  
-  filter(as.Date(valid) >= lubridate::ymd("2016-05-15")) %>%
-  filter(station == "VIDP")
+  filter(as.Date(valid) >= lubridate::ymd("2016-05-15")) 
 
 meas %>% 
   filter(city == "Delhi") %>% 
@@ -27,5 +26,5 @@ meas %>%
   geom_point(aes(dateLocal, value)) +
   facet_grid(location ~.) +
   scale_colour_manual(values = c("white","yellow"))
-ggsave("plotDelhi.png", width = 8, height = 6)
+ggsave("figures/plotDelhi.png", width = 8, height = 6)
 

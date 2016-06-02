@@ -39,4 +39,4 @@ gg <- ggmap(map_india) +
   geom_label_repel(data = data_geo,
             aes(longitude, latitude,
                 label = name), max.iter = 10000)
-ggsave(file = "map.png", width = 6, height = 6)
+ggsave(file = "figures/map.png", width = 6, height = 6)
